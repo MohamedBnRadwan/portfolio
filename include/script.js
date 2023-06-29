@@ -35,7 +35,7 @@ let answers = [
 ];
 
 let replies = [
-    [[' '], ['you need to sleep', 'امر يسطا', 'type any thing first', "Your entry key is stuck"]]
+    [[' '], ['you need to sleep', 'اأمر يسطا', 'type any thing first', "Your entry key is stuck"]]
     [['who you are?'], ['how is that!']],
     [['whats your name?'], ['عاشت الاسامي يا #input#']],
     [['are you egyptian?', 'where are you from?'], ['اجدع ناس', 'where form #input#?']],
@@ -46,8 +46,8 @@ let replies = [
 ];
 let radwan_answers = [
     ['hi', 'hi radwan'],
-    ['can i login', 'you already logged in'],
-    ['open my dashboard', 'ok, fly', '/dashboard.html'],
+    ['can i login', 'yes you can'],
+    ['dashboard', 'ok, fly to it', '/dashboard.html'],
     ["do you know who i'm?", 'yes, you are radwan'],
     ["for", 'ok, I will search with you.']
 ];
@@ -89,8 +89,14 @@ window.addEventListener('load', function (wEvent) {
             pushMessage("what else .. !", "warning");
 
             var answer = getAnswer(radwan_answers, $question);
-            if (answer == '')
-                answer = getNewQuestion();
+            if (answer == null || answer == '') {
+                var replay = getReplay(currentMessage);
+                if (replay != null && replay != '') {
+                    if (replay.includes('#input#'))
+                    replay = replay.replace('#input#', $question);
+                    pushMessage(replay, "danger");
+                }
+            }
             pushMessage(answer, "light");
             currentMessage = getNewQuestion();
             return;
@@ -116,10 +122,8 @@ window.addEventListener('load', function (wEvent) {
             if (answer != '') {
                 pushMessage(answer, "light");
             }
-            console.log('answer:' + answer)
             if (answer == null || answer == '') {
                 var replay = getReplay(currentMessage);
-                console.log('replay:' + replay)
                 if (replay != null && replay != '') {
                     if (replay.includes('#input#'))
                         replay = replay.replace('#input#', $question);
