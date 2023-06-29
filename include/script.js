@@ -88,7 +88,8 @@ window.addEventListener('load', function (wEvent) {
         if (isRadwan) {
             pushMessage("what else .. !", "warning");
 
-            var answer = getAnswer(radwan_answers, $question);
+            // var answer = getAnswer(radwan_answers, $question);
+            var answer = getAnswer(answers, $question);
             if (answer == null || answer == '') {
                 var replay = getReplay(currentMessage);
                 if (replay != null && replay != '') {
@@ -174,8 +175,10 @@ window.addEventListener('load', function (wEvent) {
             var ans = array.filter(el => el[0].includes(subString[x]));
             console.log('ans:' + ans)
             if (ans != null && ans[1] != '') {
-                if (ans.length > 2) {
-                    setTimeout(() => { window.location.href = ans[2]; }, 1500);
+                if (isRadwan) {
+                    if (ans.length > 2) {
+                        setTimeout(() => { window.location.href = ans[2]; }, 1500);
+                    }
                 }
                 var re = getOne(ans);
                 console.log('re:' + re)
