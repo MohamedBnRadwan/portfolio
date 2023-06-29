@@ -93,8 +93,9 @@ window.addEventListener('load', function (wEvent) {
                 var replay = getReplay(currentMessage);
                 if (replay != null && replay != '') {
                     if (replay.includes('#input#'))
-                    replay = replay.replace('#input#', $question);
+                        replay = replay.replace('#input#', $question);
                     pushMessage(replay, "danger");
+                    return;
                 }
             }
             pushMessage(answer, "light");
