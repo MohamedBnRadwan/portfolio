@@ -205,9 +205,9 @@ window.addEventListener('load', function (wEvent) {
         return "";
     }
     function getNewQuestion() {
-        if (incomeDomain != null && domainQuestions.filter(element => element.domain == incomeDomain).length > 0) {
-            _questions = domainQuestions.filter(element => element.domain == incomeDomain).questions
-        }
+        // if (incomeDomain != null && domainQuestions.filter(element => element.domain == incomeDomain).length > 0) {
+        //     _questions = domainQuestions.filter(element => element.domain == incomeDomain).questions
+        // }
         return getOne(_questions);
     }
 
