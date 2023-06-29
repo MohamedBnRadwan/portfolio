@@ -18,6 +18,7 @@ let answers = [
     ['haha', 'no, a funny one.'],
     ['yes', 'no, you a liar.'],
     ["no", 'realy !!'],
+    ["ok", 'good boy.'],
     ["thanks", "that's good to hear."],
     ["i'm", "say wallahi wallahi."],
     ["for", "ok, look carefully."],
