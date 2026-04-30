@@ -1,18 +1,71 @@
+:root {
+  --bg: #0f1115;
+  --bg-soft: #171a21;
+  --text: #f3f5f8;
+  --muted: #aab2c0;
+  --accent: #5d8cff;
+  --accent-2: #2ac0a9;
+  --border: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme='light'] {
+  --bg: #f4f7fb;
+  --bg-soft: #ffffff;
+  --text: #1d2433;
+  --muted: #4f5a71;
+  --accent: #2f66f5;
+  --accent-2: #0f9d8a;
+  --border: rgba(31, 41, 55, 0.12);
+}
+
+html[data-theme='ocean'] {
+  --bg: #081e25;
+  --bg-soft: #0e2b35;
+  --text: #e9fcff;
+  --muted: #a4d6de;
+  --accent: #20b8d4;
+  --accent-2: #5ce17b;
+  --border: rgba(91, 226, 210, 0.22);
+}
+
 body {
-  background: radial-gradient(circle at top right, rgba(87, 98, 255, 0.2), transparent 35%), #0f1115;
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 25%, transparent), transparent 40%), var(--bg);
+  color: var(--text);
+  transition: background-color .7s ease, color .7s ease;
+  min-height: 100vh;
 }
 
-.project-card {
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.card-shell, .exp-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
 }
 
-.project-card:hover {
-  transform: translateY(-3px);
-  transition: 0.2s ease;
-  border-color: rgba(13, 110, 253, 0.5);
+.section-kicker { color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; }
+.lead { color: var(--muted); max-width: 60ch; }
+.clean-list { list-style: none; margin: 0; padding: 0; }
+.clean-list li { margin-bottom: .6rem; }
+.grid-list li { display: flex; align-items: center; gap: .6rem; }
+
+.skill-icon, .company-mark {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: .7rem;
+  font-weight: 700;
 }
 
-.skills-list li {
-  margin-bottom: 0.4rem;
-}
+.company-mark { width: 2.5rem; height: 2.5rem; }
+
+a, .btn-outline-primary { color: var(--accent); border-color: var(--accent); }
+.btn-primary { background: var(--accent); border-color: var(--accent); }
+.btn-success { background: var(--accent-2); border-color: var(--accent-2); }
+
+.project-list { columns: 1; }
+@media (min-width: 768px) { .project-list { columns: 2; } }
