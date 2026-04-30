@@ -96,3 +96,5 @@ body {
 .bd-mode-toggle {
   z-index: 1500;
 }
+
+.chat-panel{background:rgba(18,20,26,.86);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(6px)}
