@@ -1,0 +1,18 @@
+body {
+  background: radial-gradient(circle at top right, rgba(87, 98, 255, 0.2), transparent 35%), #0f1115;
+}
+
+.project-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  transition: 0.2s ease;
+  border-color: rgba(13, 110, 253, 0.5);
+}
+
+.skills-list li {
+  margin-bottom: 0.4rem;
+}
